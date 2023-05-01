@@ -2,10 +2,13 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import RightZone from '../right zone/RightZone';
 const RightNav = () => {
     return (
-
-        <Carousel variant="dark" slide={true} className='mx-auto w-75 mt-4'>
+<div>
+    
+<div>
+<Carousel variant="dark" slide={true} className='mx-auto w-75 mt-4'>
             <Carousel.Item>
                 <Card style={{ width: '30rem' }}>
                     <Card.Img variant="top" src="https://i.ibb.co/z6YWy2H/sdojd.png" />
@@ -49,6 +52,9 @@ const RightNav = () => {
                 </Card>
             </Carousel.Item>
         </Carousel>
+</div>
+        
+</div>
 
     );
 };
