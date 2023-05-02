@@ -37,7 +37,7 @@ const Header = () => {
                                 <Link style={{textDecoration: 'none'}} to={`/menu`}>Menu</Link>
                                 <Link style={{textDecoration: 'none'}} to={`/blog`}>Blog</Link>
                                 <Link  style={{textDecoration: 'none'}} to={`/login`}>Login</Link>
-                                <Link style={{textDecoration: 'none'}} to={`/signup`}>Signup</Link>
+                                <Link style={{textDecoration: 'none'}} to={`/register`}>Signup</Link>
 
                             </Nav>
 

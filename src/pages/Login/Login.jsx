@@ -30,7 +30,7 @@ const Login = () => {
                 </Button>
                 <br />
                 <Form.Text className="text-secondary">
-                    Don't have an account? <Link to='/Info/register'>Register</Link>
+                    Don't have an account? <Link to='/register'>Register</Link>
                 </Form.Text>
                 <Form.Text className="text-success">
 
