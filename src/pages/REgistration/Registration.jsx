@@ -30,7 +30,7 @@ const Registration = () => {
 
     }
     // google sign out
-    const handleSignOut = () =>{
+    const handleGoogleSignOut = () =>{
         signOut(auth)
         .then(result =>{
             console.log(result);
@@ -52,6 +52,17 @@ const Registration = () => {
             console.log(error);
         })
      }
+    //  github signOut
+    const handleGithubSignOut = ()=>{
+        signOut(auth)
+        .then(result =>{
+console.log(result);
+        })
+        .catch(error =>{
+            console.log(error.message);
+        })
+
+    }
 
     const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
