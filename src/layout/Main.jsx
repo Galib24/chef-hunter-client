@@ -6,6 +6,7 @@ import RightNav from '../pages/Shared/Right Nav/RightNav';
 import RightZone from '../pages/Shared/right zone/RightZone';
 import LeftZone from '../pages/Shared/leftZone/LeftZone';
 import BestChefCard from '../pages/Shared/Bestchef/BestChefCard';
+import { Outlet } from 'react-router-dom';
 
 const Main = () => {
     const [infos, setInfo] = useState([]);
@@ -18,6 +19,7 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
+            
             <Container>
                 <Row>
                     <Col lg={6}>
@@ -31,7 +33,7 @@ const Main = () => {
 
                 </Row>
                 <div className=''>
-                    <h1>Our Respected Chef and Instructor</h1>
+                    <h1 className='text-secondary text-center mt-4'>Our Respected Chef and Instructor</h1>
                 </div>
                 <div className='row row-cols-auto gap-5 mt-5'>
 
@@ -76,6 +78,7 @@ const Main = () => {
                         Thank you for visiting our website, and we hope that you will consider joining us as an intern chef in the future.</p>
 
                 </div>
+                
             </Container>
             <Footer></Footer>
         </div>

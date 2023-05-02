@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <Container>
 
-            <Navbar bg="light" expand="lg" className='mb-4'>
+            <Navbar bg="light" expand="lg" className='mb-4 '>
                 <Container fluid>
                     <Navbar.Brand href="/" className='d-flex align-items-center'>
                         <img width={100} height={100} src="https://i.ibb.co/nsvzzfk/wdjdwff.png" alt="" />
@@ -32,11 +32,11 @@ const Header = () => {
                         </Nav>
                         <Form className="d-flex flex-row">
                             <Nav>
-                                <NavLink to='/'>Home</NavLink>
-                                <NavLink to='/menu'>Menu</NavLink>
-                                <NavLink to='/blog'>Blog</NavLink>
-                                <NavLink to='/login'>Login</NavLink>
-                                <NavLink to='/signUp'>Sign Up</NavLink>
+                              <Link style={{textDecoration: 'none'}} to={`/`}>Home</Link>
+                                <Link style={{textDecoration: 'none'}} to={`/menu`}>Menu</Link>
+                                <Link style={{textDecoration: 'none'}} to={`/blog`}>Blog</Link>
+                                <Link style={{textDecoration: 'none'}} to={`/login`}>Login</Link>
+                                <Link style={{textDecoration: 'none'}} to={`/signup`}>Signup</Link>
 
                             </Nav>
 
