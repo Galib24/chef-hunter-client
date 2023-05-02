@@ -32,10 +32,11 @@ const Header = () => {
                         </Nav>
                         <Form className="d-flex flex-row">
                             <Nav>
+                                
                               <Link style={{textDecoration: 'none'}} to={`/`}>Home</Link>
                                 <Link style={{textDecoration: 'none'}} to={`/menu`}>Menu</Link>
                                 <Link style={{textDecoration: 'none'}} to={`/blog`}>Blog</Link>
-                                <Link style={{textDecoration: 'none'}} to={`/login`}>Login</Link>
+                                <Link  style={{textDecoration: 'none'}} to={`/login`}>Login</Link>
                                 <Link style={{textDecoration: 'none'}} to={`/signup`}>Signup</Link>
 
                             </Nav>
