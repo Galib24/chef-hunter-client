@@ -4,7 +4,49 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import Header from '../Shared/Header/Header';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth } from "firebase/auth";
+import app from '../../firebase/firebase.config';
+
+const auth = getAuth(app)
+
 const Registration = () => {
+
+    const [error, setError] = useState('');
+
+// signup method
+
+const handleSignUp = event =>{
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photo = form.email.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name,photo,email,password);
+
+    // validation part
+
+    if(password.length < 6) {
+        setError('Password should be 6 characters');
+        return
+    }
+
+    // crete user
+    createUserWithEmailAndPassword(auth,email,password)
+    .then(result =>{
+        const loggedUser = result.user;
+        console.log(loggedUser);
+    })
+    .catch(error =>{
+        console.log(error.message);
+    })
+} 
+
+
+
+
+    // checked method
     const [accepted, setAccepted] = useState(false);
     const handleAccepted = event =>{
         setAccepted(event.target.checked);
@@ -14,7 +56,7 @@ const Registration = () => {
         <Header></Header>
             <Container className='w-25 mx-auto mt-3'>
                 <h3 className="text-secondary">Please Signup!!!</h3>
-                <Form>
+                <Form onSubmit={handleSignUp}> 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Your Name</Form.Label>
                         <Form.Control type="text" name='name' placeholder="Your Name" required />
