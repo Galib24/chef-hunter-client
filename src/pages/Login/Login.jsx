@@ -38,6 +38,7 @@ const Login = () => {
             setError('please add at least two uppercase');
             return
         }
+       
         else if (password.length < 6) {
             setError('Password should be 6 characters');
             return

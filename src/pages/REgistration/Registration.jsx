@@ -4,11 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import Header from '../Shared/Header/Header';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { getAuth } from "firebase/auth";
 import app from '../../firebase/firebase.config';
 
-const auth = getAuth(app)
+const auth = getAuth(app);
+const user = auth.currentUser;
 
 const Registration = () => {
     const [success, setSuccess] = useState("")
@@ -25,7 +26,9 @@ const Registration = () => {
         const password = form.password.value;
         console.log(name, photo, email, password);
 
-
+        if (!email) {
+            return alert('Please provide an email')
+        }
         // reset field
         setError("")
         setSuccess("")
@@ -42,7 +45,11 @@ const Registration = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const loggedUser = result.user;
+               console.log(loggedUser);
+               
                 setSuccess('Successfully Created Account');
+                updateUserData(result.user, name,photo)
+
             })
             .catch(error => {
                 setError(error.message);
@@ -57,6 +64,25 @@ const Registration = () => {
     const handleAccepted = event => {
         setAccepted(event.target.checked);
     }
+
+    // update user name
+    const updateUserData = (user, name, photo) => {
+        updateProfile(user, {
+            displayName: name,
+            photoURL: photo
+        })
+            .then(() => {
+                console.log('user name updated', name, photo);
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+
+    // updated user photo URL
+
+
+
     return (
         <>
             <Header></Header>
@@ -75,7 +101,7 @@ const Registration = () => {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" name='email' placeholder="Enter your email" required />
+                        <Form.Control type="email" name='email' placeholder="Enter your email" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
