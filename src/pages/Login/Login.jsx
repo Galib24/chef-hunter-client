@@ -14,8 +14,8 @@ const Login = () => {
 
 
     // useState for error
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('')
+    const [error, setError] = useState("")
+    const [success, setSuccess] = useState("")
 
     // trigger of login button
 
@@ -32,6 +32,7 @@ const Login = () => {
         // validation function
 
         setError("")
+        setSuccess("")
         form.reset();
         if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
             setError('please add at least two uppercase');
@@ -51,7 +52,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth,email,password)
     .then(result =>{
         const loggedUser = result.user;
-        console.log(loggedUser);
+        setSuccess('Successfully login');
         setError('');
     })
     .catch(error =>{
@@ -87,7 +88,7 @@ const Login = () => {
                         Don't have an account? <Link to='/register'>Register</Link>
                     </Form.Text>
                     <Form.Text className="text-success">
-                        <p>{success.message}</p>
+                        <p>{success}</p>
                     </Form.Text>
                     <Form.Text className="text-danger">
 
