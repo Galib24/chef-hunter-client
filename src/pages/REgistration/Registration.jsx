@@ -4,18 +4,59 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import Header from '../Shared/Header/Header';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { getAuth } from "firebase/auth";
 import app from '../../firebase/firebase.config';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const auth = getAuth(app);
 const user = auth.currentUser;
 
 const Registration = () => {
-    const [success, setSuccess] = useState("")
+
+    // Google function for login
+    const googleProvider = new GoogleAuthProvider();
+
+
+    const handleGoogleLogIn = () => {
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error =>{
+                console.log('error',error);
+            })
+
+    }
+    // google sign out
+    const handleSignOut = () =>{
+        signOut(auth)
+        .then(result =>{
+            console.log(result);
+
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+    }
+    // github method
+    const githubProvider = new GithubAuthProvider();
+     const handleGithubLogIn =() =>{
+        signInWithPopup(auth,githubProvider )
+        .then(result =>{
+            const loggedUser = result.user
+            console.log(loggedUser);
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+     }
+
+    const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
 
-    // signup method
+    // signUp method
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -45,10 +86,10 @@ const Registration = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const loggedUser = result.user;
-               console.log(loggedUser);
-               
+                console.log(loggedUser);
+
                 setSuccess('Successfully Created Account');
-                updateUserData(result.user, name,photo)
+                updateUserData(result.user, name, photo)
 
             })
             .catch(error => {
@@ -125,7 +166,24 @@ const Registration = () => {
                         <p>{error}</p>
                     </Form.Text>
                 </Form>
+
             </Container>
+
+            {/* facebook and github */}
+            <div className='d-flex justify-content-center gap-5'>
+                <Form.Group className='mt-3'>
+                    {/* <div >Larger shadow</div> */}
+                    <Button onClick={handleGoogleLogIn} className="shadow-lg p-3 mb-5  rounded bg-light ">
+                      <FaGoogle style={{color: 'black'}}></FaGoogle>
+                    </Button>
+                </Form.Group>
+                <Form.Group className='mt-3'>
+                    {/* <div >Larger shadow</div> */}
+                    <Button onClick={handleGithubLogIn} className="shadow-lg p-3 mb-5  rounded bg-light ">
+                        <FaGithub style={{ color: 'black' }}></FaGithub>
+                    </Button>
+                </Form.Group>
+            </div>
         </>
     );
 };
