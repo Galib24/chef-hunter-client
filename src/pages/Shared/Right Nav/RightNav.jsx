@@ -4,16 +4,18 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import RightZone from '../right zone/RightZone';
 const RightNav = () => {
-    const [info, setInfo] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/chefDetails')
-            .then(res => res.json())
-            .then(data => console.log(data))
-            .catch(error => console.log(error))
-    }, [])
+    // const [infos, setInfo] = useState([]);
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/chefDetails')
+    //         .then(res => res.json())
+    //         .then(data => setInfo(data))
+    //         .catch(error => console.log(error))
+    // }, [])
     return (
         <div>
-
+{/* {
+    infos.map(info => <p>{info.name}</p> )
+} */}
             <div>
                 <Carousel variant="dark" slide={true} className='mx-auto w-75 mt-4'>
                     <Carousel.Item>
@@ -25,7 +27,7 @@ const RightNav = () => {
                                     Some quick example text to build on the card title and make up the
                                     bulk of the card's content.
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                               
                             </Card.Body>
                         </Card>
 
@@ -39,7 +41,7 @@ const RightNav = () => {
                                     Some quick example text to build on the card title and make up the
                                     bulk of the card's content.
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                              
                             </Card.Body>
                         </Card>
 
@@ -54,7 +56,7 @@ const RightNav = () => {
                                     Some quick example text to build on the card title and make up the
                                     bulk of the card's content.
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                
                             </Card.Body>
                         </Card>
                     </Carousel.Item>

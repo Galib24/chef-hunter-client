@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../pages/Shared/Header/Header';
 import Footer from '../pages/Shared/Footer/Footer';
 import { Col, Container, Row } from 'react-bootstrap';
 import RightNav from '../pages/Shared/Right Nav/RightNav';
 import RightZone from '../pages/Shared/right zone/RightZone';
 import LeftZone from '../pages/Shared/leftZone/LeftZone';
+import BestChefCard from '../pages/Shared/Bestchef/BestChefCard';
 
 const Main = () => {
+    const [infos, setInfo] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/chefDetails')
+            .then(res => res.json())
+            .then(data => setInfo(data))
+            .catch(error => console.log(error))
+    }, [])
     return (
         <div>
             <Header></Header>
@@ -22,6 +30,23 @@ const Main = () => {
                     </Col>
 
                 </Row>
+                <div className=''>
+                    <h1>Our Respected Chef and Instructor</h1>
+                </div>
+                <div className='row row-cols-auto gap-5 mt-5'>
+
+                    {
+                        infos.map(info => <BestChefCard
+                            key={info.id}
+                            info={info}
+                        >
+
+                        </BestChefCard>)
+                    }
+                </div>
+
+
+
                 <div className='d-flex align-items-center'>
                     <p>Hello and welcome to our website! We are thrilled to have you here and hope that you find everything you are looking for.
 
