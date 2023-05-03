@@ -45,9 +45,9 @@ const MoreInfo = () => {
         method2,
         method3
     } = MoreInfoDetails;
-    console.log(MoreInfoDetails);
+    console.log(ingredients);
 
-
+const item = ingredients.map((items) => <li>{items}</li>)
 
     return (
 
@@ -56,8 +56,9 @@ const MoreInfo = () => {
             <Header></Header>
 
 
-            <Container className='mt-5'>
-                <Row>
+            
+              <div className='row row-cols-auto'>
+              <Row>
                     {/* card part */}
                     <Col lg={6}>
                         <Row xs={1} md={2} className="g-4">
@@ -87,9 +88,11 @@ const MoreInfo = () => {
                                 <Card.Img variant="top" src={image2} />
                                 <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
-                                    <Card.Text>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ullam voluptates aliquam?
-                                    </Card.Text>
+                                    
+                             <Card.Text>
+                                {item}
+                             </Card.Text>
+                                    
                                     <Button style={{insetInline: 'block'}} disabled={disable} onClick={toastHandle} variant="primary"><FaThumbsUp></FaThumbsUp> </Button>
                                 </Card.Body>
                             </Card>
@@ -121,7 +124,8 @@ const MoreInfo = () => {
 
                     </Col>
                 </Row>
-            </Container>
+            
+              </div>
 
 
         </div>
