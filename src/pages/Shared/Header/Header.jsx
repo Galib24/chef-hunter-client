@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -8,8 +8,10 @@ import './Header.css'
 import moment from 'moment';
 import Marquee from "react-fast-marquee";
 import { NavLink } from 'react-bootstrap';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Header = () => {
+    // const { signIn } = useContext(AuthContext)
     return (
         <Container>
 
@@ -32,12 +34,19 @@ const Header = () => {
                         </Nav>
                         <Form className="d-flex flex-row">
                             <Nav>
-                                
-                              <Link style={{textDecoration: 'none'}} to={`/`}>Home</Link>
-                                <Link style={{textDecoration: 'none'}} to={`/menu`}>Menu</Link>
-                                <Link style={{textDecoration: 'none'}} to={`/blog`}>Blog</Link>
-                                <Link  style={{textDecoration: 'none'}} to={`/login`}>Login</Link>
-                                <Link style={{textDecoration: 'none'}} to={`/register`}>Signup</Link>
+
+                                <Link style={{ textDecoration: 'none' }} to={`/`}>Home</Link>
+                                <Link style={{ textDecoration: 'none' }} to={`/menu`}>Menu</Link>
+                                <Link style={{ textDecoration: 'none' }} to={`/blog`}>Blog</Link>
+                                {/* {user && <Nav.Link>
+                                    <img  src="" alt="" />
+                                </Nav.Link>}
+                                {user ?
+                                    <Link style={{ textDecoration: 'none' }}>Logout</Link> :
+                                    <Link style={{ textDecoration: 'none' }} to={`/login`}>Login</Link>
+                                } */}
+                                <Link style={{ textDecoration: 'none' }} to={`/login`}>Login</Link>
+                                <Link style={{ textDecoration: 'none' }} to={`/register`}>Signup</Link>
 
                             </Nav>
 
@@ -50,25 +59,25 @@ const Header = () => {
                 <p>{moment().format("dddd, MMMM D, YYYY")}</p>
             </div>
             <div className='d-flex mb-2'>
-                
-            
-                
+
+
+
                 <Marquee className='text-black' speed={50}>
-                <div className='mx-5'>
-                   <img width={60} src="https://i.ibb.co/b32NwgQ/dwfhd.png" alt="" />
-                   </div>
-                  
-                  <div className='mx-5'>
-                   <img width={60} src="https://i.ibb.co/w0pYVsB/sdfhgyde.png" alt="" />
-                   </div>
-                   
-                   <div className='mx-5'>
-                   <img width={60} src="https://i.ibb.co/jLjz6ww/wdfurf.png" alt="" />
-                   </div>
-                   
-                   <div className='mx-5'>
-                   <img width={60} src="https://i.ibb.co/4RCv4FR/sdfhjwer.png" alt="" />
-                   </div>
+                    <div className='mx-5'>
+                        <img width={60} src="https://i.ibb.co/b32NwgQ/dwfhd.png" alt="" />
+                    </div>
+
+                    <div className='mx-5'>
+                        <img width={60} src="https://i.ibb.co/w0pYVsB/sdfhgyde.png" alt="" />
+                    </div>
+
+                    <div className='mx-5'>
+                        <img width={60} src="https://i.ibb.co/jLjz6ww/wdfurf.png" alt="" />
+                    </div>
+
+                    <div className='mx-5'>
+                        <img width={60} src="https://i.ibb.co/4RCv4FR/sdfhjwer.png" alt="" />
+                    </div>
                 </Marquee>
             </div>
 

@@ -1,0 +1,27 @@
+.footer {
+    background-color: #333;
+    color: #fff;
+}
+
+.footer p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #fff;
+}
+
+.footer a:hover {
+    color: #f0ad4e;
+    text-decoration: none;
+}
+
+.footer .address {
+    font-size: 0.9rem;
+}
+
+.footer small {
+    font-size: 0.7rem;
+    color: #ccc;
+}

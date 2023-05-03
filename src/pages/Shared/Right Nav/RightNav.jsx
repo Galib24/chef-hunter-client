@@ -22,10 +22,9 @@ const RightNav = () => {
                         <Card style={{ width: '30rem' }}>
                             <Card.Img variant="top" src="https://i.ibb.co/z6YWy2H/sdojd.png" />
                             <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
+                                
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
+                                 We are here for give customer best food and we are happy to serve them, thanks for being with us
                                 </Card.Text>
                                
                             </Card.Body>
@@ -36,10 +35,9 @@ const RightNav = () => {
                         <Card style={{ width: '30rem' }}>
                             <Card.Img variant="top" src="https://i.ibb.co/mD2WfwH/sdju.png" />
                             <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
+                                
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
+                                We are here for give customer best food and we are happy to serve them, thanks for being with us
                                 </Card.Text>
                               
                             </Card.Body>
@@ -51,10 +49,9 @@ const RightNav = () => {
                         <Card style={{ width: '30rem' }}>
                             <Card.Img variant="top" src="https://i.ibb.co/YkNQWC6/sju.png" />
                             <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
+                                
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
+                                We are here for give customer best food and we are happy to serve them, thanks for being with us
                                 </Card.Text>
                                 
                             </Card.Body>
