@@ -7,16 +7,16 @@ import Swal from 'sweetalert2'
 
 
 const MoreInfo = () => {
-    const [disable, setDisable] = useState(false)
+    const [vanish, setVanish] = useState(false)
 
     // toast 
     const toastHandle = () => {
         Swal.fire(
-            'Thanks for Liked my recipe!',
+            'Added Favorite!',
             'Customer Satisfaction is our Pride',
 
         )
-        setDisable(true)
+        setVanish(true)
     }
 
 
@@ -40,14 +40,22 @@ const MoreInfo = () => {
         image2,
         image3,
         image4,
-        ingredients,
+        ingredients1,
+        ingredients2,
+        ingredients3,
+        ingredients4,
+        ingredients5,
         method1,
         method2,
-        method3
-    } = MoreInfoDetails;
-    console.log(ingredients);
+        method3,
+        recipeName1,
+        recipeName2,
+        recipeName3
 
-const item = ingredients.map((items) => <li>{items}</li>)
+    } = MoreInfoDetails;
+    // console.log(ingredients);
+
+    // const item = ingredients.map((items) => <li>{items}</li>)
 
     return (
 
@@ -56,12 +64,12 @@ const item = ingredients.map((items) => <li>{items}</li>)
             <Header></Header>
 
 
-            
-              <div className='row row-cols-auto'>
-              <Row>
+
+            <div className='row row-cols-auto'>
+                <Row>
                     {/* card part */}
                     <Col lg={6}>
-                        <Row xs={1} md={2} className="g-4">
+                        <Row xs={1} md={2} className="g-4 sticky-lg-top">
                             {Array.from({ length: 1 }).map((_, idx) => (
                                 <Col>
                                     <Card>
@@ -83,49 +91,85 @@ const item = ingredients.map((items) => <li>{items}</li>)
                     <Col lg={6}>
 
 
-                        <div className='row row-col-auto g-2'>
-                            <Card style={{ width: '18rem' }} >
-                                <Card.Img variant="top" src={image2} />
-                                <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
-                                    
-                             <Card.Text>
-                                {item}
-                             </Card.Text>
-                                    
-                                    <Button style={{insetInline: 'block'}} disabled={disable} onClick={toastHandle} variant="primary"><FaThumbsUp></FaThumbsUp> </Button>
-                                </Card.Body>
-                            </Card>
 
-                            <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={image3} />
-                                <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
-                                    <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                    </Card.Text>
-                                    <Button disabled={disable} onClick={toastHandle} variant="primary"><FaThumbsUp></FaThumbsUp></Button>
-                                </Card.Body>
-                            </Card>
+                        <Card className='w-75 mb-4'>
+                            <Card.Img variant="top" src={image2} />
+                            <Card.Body>
+                                <h4 className='text-center'>{recipeName1}</h4>
+                                <Card.Title>Ingredient</Card.Title>
 
-                            <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={image4} />
-                                <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
-                                    <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                    </Card.Text>
-                                    <Button disabled={disable} onClick={toastHandle} variant="primary"><FaThumbsUp></FaThumbsUp></Button>
-                                </Card.Body>
-                            </Card>
-                        </div>
+                                <Card.Text>
+
+                                    {/* {ingredients.map(lk => <li>{lk}</li>)} */}
+                                    <div>
+                                        <ul style={{ listStyleType: 'none' }}>
+                                            <li><strong>{ingredients1}</strong></li>
+                                            <li><strong>{ingredients2}</strong></li>
+                                            <li><strong>{ingredients3}</strong></li>
+                                            <li><strong>{ingredients4}</strong></li>
+                                            <li><strong>{ingredients5}</strong></li>
+                                        </ul>
+
+                                        {method1}
+
+                                    </div>
+                                </Card.Text>
+
+                                <Button style={{ backgroundColor: 'gray' }} disabled={vanish} onClick={toastHandle}><FaThumbsUp></FaThumbsUp> </Button>
+                            </Card.Body>
+                        </Card>
+
+                        <Card className='w-75 mb-4'>
+                            <Card.Img variant="top" src={image3} />
+                            <Card.Body>
+                                <h4 className='text-center'>{recipeName2}</h4>
+                                <Card.Title>Ingredient</Card.Title>
+                                <Card.Text>
+                                    <div>
+                                        <ul style={{ listStyleType: 'none' }}>
+                                            <li><strong>{ingredients1}</strong></li>
+                                            <li><strong>{ingredients2}</strong></li>
+                                            <li><strong>{ingredients3}</strong></li>
+                                            <li><strong>{ingredients4}</strong></li>
+                                            <li><strong>{ingredients5}</strong></li>
+                                        </ul>
+
+                                        {method2}
+
+                                    </div>
+                                </Card.Text>
+                                <Button style={{ backgroundColor: 'gray' }} disabled={vanish} onClick={toastHandle}><FaThumbsUp></FaThumbsUp></Button>
+                            </Card.Body>
+                        </Card>
+
+                        <Card className='w-75 mb-4'>
+                            <Card.Img variant="top" src={image4} />
+                            <Card.Body>
+                                <h4 className='text-center'>{recipeName3}</h4>
+                                <Card.Title>Ingredient</Card.Title>
+                                <Card.Text>
+                                    <div>
+                                        <ul style={{ listStyleType: 'none' }}>
+                                            <li><strong>{ingredients1}</strong></li>
+                                            <li><strong>{ingredients2}</strong></li>
+                                            <li><strong>{ingredients3}</strong></li>
+                                            <li><strong>{ingredients4}</strong></li>
+                                            <li><strong>{ingredients5}</strong></li>
+                                        </ul>
+
+                                        {method3}
+
+                                    </div>
+                                </Card.Text>
+                                <Button style={{ backgroundColor: 'gray' }} disabled={vanish} onClick={toastHandle}><FaThumbsUp></FaThumbsUp></Button>
+                            </Card.Body>
+                        </Card>
+
 
                     </Col>
                 </Row>
-            
-              </div>
+
+            </div>
 
 
         </div>
