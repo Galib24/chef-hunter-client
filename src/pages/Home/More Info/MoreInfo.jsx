@@ -5,6 +5,8 @@ import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { FaThumbsUp } from 'react-icons/fa';
 import Swal from 'sweetalert2'
 import Footer from '../../Shared/Footer/Footer';
+import { Rating } from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css'
 
 
 const MoreInfo = () => {
@@ -80,7 +82,10 @@ const MoreInfo = () => {
                                             <Card.Text>
                                                 <h6>Years Of Experience: {yearsOfExperience} </h6>
                                                 <h6> <strong>Biodata: </strong> {biodata} </h6>
-                                                <h6>Ratings: {rating} </h6>
+                                                <div className='d-flex'>
+                                                    <Rating style={{ maxWidth: 100 }} value={rating} readOnly />
+                                                    <h7>{rating} </h7>
+                                                </div>
 
                                             </Card.Text>
                                         </Card.Body>

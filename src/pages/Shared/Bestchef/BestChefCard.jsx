@@ -2,6 +2,8 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
+import { Rating } from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css'
 
 const BestChefCard = ({ info }) => {
     const navigate = useNavigate()
@@ -17,7 +19,10 @@ const BestChefCard = ({ info }) => {
                         <br />
                         <h7>Number Of Recipes {numberOfRecipes} </h7>
                         <br />
-                        <h7>Ratings: {rating} </h7>
+                        <div className='d-flex'>
+                        <Rating style={{ maxWidth: 100 }} value={rating} readOnly />
+                        <h7>{rating} </h7>
+                        </div>
 
                     </Card.Text>
 
