@@ -138,9 +138,7 @@ console.log(result);
     return (
         <>
             <Header></Header>
-            <div>
-                <p>{user.name}</p>
-            </div>
+           
             <Container className='w-25 mx-auto mt-3'>
                 <h3 className="text-secondary">Please Signup!!!</h3>
                 <Form onSubmit={handleSignUp}>
