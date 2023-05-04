@@ -44,6 +44,9 @@ const Header = () => {
                                     <Link style={{ textDecoration: 'none' }}>Logout</Link> :
                                     <Link style={{ textDecoration: 'none' }} to={`/login`}>Login</Link>
                                 } */}
+
+
+                                
                                 <Link style={{ textDecoration: 'none' }} to={`/login`}>Login</Link>
                                 <Link style={{ textDecoration: 'none' }} to={`/register`}>Signup</Link>
 

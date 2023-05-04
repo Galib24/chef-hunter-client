@@ -23,45 +23,45 @@ const Registration = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
-                console.log(user);
+                setSuccess('Successfully Signup');
             })
-            .catch(error =>{
-                console.log('error',error);
+            .catch(error => {
+                console.log('error', error);
             })
 
     }
     // google sign out
-    const handleGoogleSignOut = () =>{
+    const handleGoogleSignOut = () => {
         signOut(auth)
-        .then(result =>{
-            console.log(result);
+            .then(result => {
+                console.log(result);
 
-        })
-        .catch(error =>{
-            console.log(error);
-        })
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
     // github method
     const githubProvider = new GithubAuthProvider();
-     const handleGithubLogIn =() =>{
-        signInWithPopup(auth,githubProvider )
-        .then(result =>{
-            const loggedUser = result.user
-            console.log(loggedUser);
-        })
-        .catch(error =>{
-            console.log(error);
-        })
-     }
+    const handleGithubLogIn = () => {
+        signInWithPopup(auth, githubProvider)
+            .then(result => {
+                const loggedUser = result.user
+              setSuccess('Successfully Signup');
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
     //  github signOut
-    const handleGithubSignOut = ()=>{
+    const handleGithubSignOut = () => {
         signOut(auth)
-        .then(result =>{
-console.log(result);
-        })
-        .catch(error =>{
-            console.log(error.message);
-        })
+            .then(result => {
+                console.log(result);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
 
     }
 
@@ -94,7 +94,7 @@ console.log(result);
             return
         }
 
-        // crete user
+        // create user
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const loggedUser = result.user;
@@ -139,7 +139,7 @@ console.log(result);
     return (
         <>
             <Header></Header>
-           
+
             <Container className='w-25 mx-auto mt-3'>
                 <h3 className="text-secondary">Please Signup!!!</h3>
                 <Form onSubmit={handleSignUp}>
@@ -182,12 +182,12 @@ console.log(result);
 
             </Container>
 
-            {/* facebook and github */}
+            {/* google and github */}
             <div className='d-flex justify-content-center gap-5'>
                 <Form.Group className='mt-3'>
                     {/* <div >Larger shadow</div> */}
                     <Button onClick={handleGoogleLogIn} className="shadow-lg p-3 mb-5  rounded bg-light ">
-                      <FaGoogle style={{color: 'black'}}></FaGoogle>
+                        <FaGoogle style={{ color: 'black' }}></FaGoogle>
                     </Button>
                 </Form.Group>
                 <Form.Group className='mt-3'>

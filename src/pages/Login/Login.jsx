@@ -4,13 +4,64 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import Header from '../Shared/Header/Header';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import app from '../../firebase/firebase.config';
 import Footer from '../Shared/Footer/Footer';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const auth = getAuth(app)
 
 const Login = () => {
+
+    // Google function for login
+    const googleProvider = new GoogleAuthProvider();
+
+
+    const handleGoogleLogIn = () => {
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                const user = result.user;
+                setSuccess('Successfully LoggedIn');
+            })
+            .catch(error => {
+                console.log('error', error);
+            })
+
+    }
+    // google sign out
+    const handleGoogleSignOut = () => {
+        signOut(auth)
+            .then(result => {
+                console.log(result);
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+    // github method
+    const githubProvider = new GithubAuthProvider();
+    const handleGithubLogIn = () => {
+        signInWithPopup(auth, githubProvider)
+            .then(result => {
+                const loggedUser = result.user
+                setSuccess('Successfully Signup');
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+    //  github signOut
+    const handleGithubSignOut = () => {
+        signOut(auth)
+            .then(result => {
+                console.log(result);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+
+    }
 
 
 
@@ -39,7 +90,7 @@ const Login = () => {
             setError('please add at least two uppercase');
             return
         }
-       
+
         else if (password.length < 6) {
             setError('Password should be 6 characters');
             return
@@ -49,17 +100,17 @@ const Login = () => {
         // return
         // }
 
-    //  signIn method
+        //  signIn method
 
-    signInWithEmailAndPassword(auth,email,password)
-    .then(result =>{
-        const loggedUser = result.user;
-        setSuccess('Successfully login');
-        setError('');
-    })
-    .catch(error =>{
-        setError(error.message)
-    })
+        signInWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                setSuccess('Successfully login');
+                setError('');
+            })
+            .catch(error => {
+                setError(error.message)
+            })
 
     }
     return (
@@ -87,7 +138,7 @@ const Login = () => {
                     </Button>
                     <br />
                     <Form.Text className="text-secondary">
-                        Don't have an account? <Link style={{textDecoration: 'none'}} to='/register'>Register</Link>
+                        Don't have an account? <Link style={{ textDecoration: 'none' }} to='/register'>Register</Link>
                     </Form.Text>
                     <Form.Text className="text-success">
                         <p>{success}</p>
@@ -97,7 +148,23 @@ const Login = () => {
                         <p>{error}</p>
                     </Form.Text>
                 </Form>
+                {/* google and github */}
+                <div className='d-flex justify-content-center gap-5'>
+                    <Form.Group className='mt-3'>
+                        {/* <div >Larger shadow</div> */}
+                        <Button onClick={handleGoogleLogIn} className="shadow-lg p-3 mb-5  rounded bg-light ">
+                            <FaGoogle style={{ color: 'black' }}></FaGoogle>
+                        </Button>
+                    </Form.Group>
+                    <Form.Group className='mt-3'>
+                        {/* <div >Larger shadow</div> */}
+                        <Button onClick={handleGithubLogIn} className="shadow-lg p-3 mb-5  rounded bg-light ">
+                            <FaGithub style={{ color: 'black' }}></FaGithub>
+                        </Button>
+                    </Form.Group>
+                </div>
             </Container>
+
             <Footer></Footer>
         </>
     );
