@@ -6,7 +6,7 @@ import RightZone from '../right zone/RightZone';
 const RightNav = () => {
     // const [infos, setInfo] = useState([]);
     // useEffect(() => {
-    //     fetch('http://localhost:5000/chefDetails')
+    //     fetch('https://chef-hunter-server-galib24.vercel.app/chefDetails')
     //         .then(res => res.json())
     //         .then(data => setInfo(data))
     //         .catch(error => console.log(error))

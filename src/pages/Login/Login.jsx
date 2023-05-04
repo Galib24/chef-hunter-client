@@ -87,7 +87,7 @@ const Login = () => {
                     </Button>
                     <br />
                     <Form.Text className="text-secondary">
-                        Don't have an account? <Link to='/register'>Register</Link>
+                        Don't have an account? <Link style={{textDecoration: 'none'}} to='/register'>Register</Link>
                     </Form.Text>
                     <Form.Text className="text-success">
                         <p>{success}</p>

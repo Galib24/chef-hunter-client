@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         path: 'moreDetails/:id',
         element: <MoreInfo></MoreInfo>,
         errorElement: <ErrorPage></ErrorPage>,
-        loader: ({params}) => fetch(`http://localhost:5000/chefDetails/ `)
+        loader: ({params}) => fetch(`https://chef-hunter-server-galib24.vercel.app/chefDetails/ `)
 
     },
     {
