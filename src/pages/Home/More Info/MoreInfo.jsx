@@ -4,6 +4,7 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { FaThumbsUp } from 'react-icons/fa';
 import Swal from 'sweetalert2'
+import Footer from '../../Shared/Footer/Footer';
 
 
 const MoreInfo = () => {
@@ -170,6 +171,7 @@ const MoreInfo = () => {
                 </Row>
 
             </div>
+            <Footer></Footer>
 
 
         </div>

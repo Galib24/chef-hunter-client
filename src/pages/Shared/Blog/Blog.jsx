@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Header from '../Header/Header';
 import ReactPdf from '../ReactPdf/ReactPdf';
+import Footer from '../Footer/Footer';
 
 const Blog = () => {
     
@@ -52,6 +53,7 @@ const Blog = () => {
 
             </div>
             <ReactPdf></ReactPdf>
+            <Footer></Footer>
         </>
     );
 };

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Header from '../Shared/Header/Header';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import app from '../../firebase/firebase.config';
+import Footer from '../Shared/Footer/Footer';
 
 const auth = getAuth(app)
 
@@ -97,6 +98,7 @@ const Login = () => {
                     </Form.Text>
                 </Form>
             </Container>
+            <Footer></Footer>
         </>
     );
 };

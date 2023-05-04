@@ -8,6 +8,7 @@ import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword,
 import { getAuth } from "firebase/auth";
 import app from '../../firebase/firebase.config';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
+import Footer from '../Shared/Footer/Footer';
 
 const auth = getAuth(app);
 const user = auth.currentUser;
@@ -196,6 +197,7 @@ console.log(result);
                     </Button>
                 </Form.Group>
             </div>
+            <Footer></Footer>
         </>
     );
 };
