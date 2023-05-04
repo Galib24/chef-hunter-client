@@ -36,7 +36,6 @@ const Header = () => {
                             <Nav>
 
                                 <Link style={{ textDecoration: 'none' }} to={`/`}>Home</Link>
-                                <Link style={{ textDecoration: 'none' }} to={`/menu`}>Menu</Link>
                                 <Link style={{ textDecoration: 'none' }} to={`/blog`}>Blog</Link>
                                 {/* {user && <Nav.Link>
                                     <img  src="" alt="" />

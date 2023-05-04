@@ -8,6 +8,7 @@ import Registration from '../pages/REgistration/Registration';
 import Terms from '../pages/Shared/Terms condition/Terms';
 import Conditions from '../pages/Shared/Conditions/Conditions';
 import ErrorPage from '../pages/Shared/Error/ErrorPage';
+import Blog from '../pages/Shared/Blog/Blog';
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,12 @@ const router = createBrowserRouter([
         path: '/terms',
         element: <Terms></Terms>,
         errorElement: <ErrorPage></ErrorPage>,
+    },
+    {
+        path: '/blog',
+        errorElement: <ErrorPage></ErrorPage>,
+        element: <Blog></Blog>
+        
     }
 
 
