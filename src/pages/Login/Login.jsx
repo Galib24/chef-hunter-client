@@ -4,14 +4,16 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import Header from '../Shared/Header/Header';
-import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../../firebase/firebase.config';
 import Footer from '../Shared/Footer/Footer';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
+import Card from 'react-bootstrap/Card';
 
 const auth = getAuth(app)
 
 const Login = () => {
+    const [user, setUser] = useState(null)
 
     // Google function for login
     const googleProvider = new GoogleAuthProvider();
@@ -20,8 +22,9 @@ const Login = () => {
     const handleGoogleLogIn = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                const user = result.user;
+                const loggedInUser = result.user;
                 setSuccess('Successfully LoggedIn');
+                setUser(loggedInUser)
             })
             .catch(error => {
                 console.log('error', error);
@@ -33,6 +36,7 @@ const Login = () => {
         signOut(auth)
             .then(result => {
                 console.log(result);
+                setUser(null)
 
             })
             .catch(error => {
@@ -45,7 +49,8 @@ const Login = () => {
         signInWithPopup(auth, githubProvider)
             .then(result => {
                 const loggedUser = result.user
-                setSuccess('Successfully Signup');
+                setSuccess('Successfully LoggedIn');
+                setUser(loggedUser)
             })
             .catch(error => {
                 console.log(error);
@@ -104,14 +109,27 @@ const Login = () => {
 
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
-                const loggedUser = result.user;
+                const loggedUseR = result.user;
                 setSuccess('Successfully login');
                 setError('');
+                setUser(loggedUseR)
+                console.log(loggedUseR);
             })
             .catch(error => {
                 setError(error.message)
             })
 
+    }
+
+    const handleSignOut = () => {
+        signOut(auth)
+            .then(result => {
+                console.log(result);
+                setUser(null)
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
     return (
         <>
@@ -163,6 +181,29 @@ const Login = () => {
                         </Button>
                     </Form.Group>
                 </div>
+
+
+                {user && <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={user.photoURL} />
+                    <Card.Body>
+                        <Card.Text>Welcome{user.displayName}
+                            <br />
+                            {user.email}
+                        </Card.Text>
+                        
+                    </Card.Body>
+                </Card>}
+                {user ?
+                    <Button className='w-50 mt-3' onClick={handleSignOut}>LoggedOut</Button>
+                    :
+                    <Button onClick={handleGoogleLogIn}>LoggedIn</Button>
+                }
+                {/* <div>
+                    <h3>Welcome{user.displayName}</h3>
+                    <h3>{user.email}</h3>
+                    <img src={user.photoURL} alt="" />
+                </div> */}
+
             </Container>
 
             <Footer></Footer>

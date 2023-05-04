@@ -72,7 +72,7 @@ const MoreInfo = () => {
                 <Row>
                     {/* card part */}
                     <Col lg={6}>
-                        <Row xs={1} md={2} className="g-4 sticky-lg-top">
+                        <Row xs={1} md={2} className="g-4 mx-4 sticky-lg-top">
                             {Array.from({ length: 1 }).map((_, idx) => (
                                 <Col>
                                     <Card>

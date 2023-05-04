@@ -7,15 +7,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import './Header.css'
 import moment from 'moment';
 import Marquee from "react-fast-marquee";
-import { NavLink } from 'react-bootstrap';
-import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Header = () => {
     // const { signIn } = useContext(AuthContext)
     return (
         <Container>
 
-            <Navbar bg="light" expand="lg" className='mb-4 '>
+            <Navbar bg="light" expand="lg" className='mb-4  '>
                 <Container fluid>
                     <Navbar.Brand href="/" className='d-flex align-items-center'>
                         <img width={100} height={100} src="https://i.ibb.co/nsvzzfk/wdjdwff.png" alt="" />
